@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chinook Business Intelligence Case Study | Radwan Hefny</title>
+  <meta name="description"
+    content="Detailed business intelligence and growth strategy case study for the Chinook digital music store project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .case-study-hero {
+      position: relative;
+      padding: 140px 0 80px;
+      background: radial-gradient(circle at center, rgba(139, 131, 255, 0.08) 0%, var(--bg-primary) 70%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .case-study-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-item strong {
+      color: var(--accent-light);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .back-btn:hover {
+      color: var(--accent);
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .chinook-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      margin-top: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .chinook-insight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .chinook-insight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .insight-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .insight-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .insight-card h3 {
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .insight-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .badge-icon {
+      background: var(--accent-glow);
+      color: var(--accent-light);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="back-btn" aria-label="Back to home page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+      </a>
+      <a href="index.html" class="nav-logo">R<span>.</span>M</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <header class="case-study-hero">
+      <div class="container">
+        <span class="section-label">Case Study Detail</span>
+        <h1 class="section-title" style="margin-top: 10px;">Chinook Business Intelligence</h1>
+        <p class="case-study-meta">
+          <span class="meta-item">Role: <strong>BI Developer &amp; Data Modeler</strong></span>
+          <span class="meta-item">Tools: <strong>SQL, Power BI, DAX</strong></span>
+          <span class="meta-item">Focus: <strong>Growth Strategy &amp; Revenue Operations</strong></span>
+        </p>
+      </div>
+    </header>
+
+    <!-- ===== Overview ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="chinook-container">
+          <span class="section-label">Overview &amp; Recommendations</span>
+          <h2 class="section-title" style="margin-top: 12px;">Diagnosing Growth Stagnation</h2>
+          <p class="section-desc" style="max-width: 100%; margin-bottom: 32px;">
+            This case study details the optimization strategy built for the digital store database to solve stagnation, optimize marketing allocation, and prune under-performing assets.
+          </p>
+
+          <img src="images/chinook.webp" alt="Chinook BI Recommendations — Growth Strategy" width="1280" height="720" style="border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow-sm); width: 100%; object-fit: cover;" />
+
+          <div class="chinook-insight-grid">
+            <div class="insight-card">
+              <h3>
+                <span class="badge-icon">💡</span>
+                Revenue Retention
+              </h3>
+              <p>Reallocating local marketing budgets to high-retention regions and channels to lower customer acquisition cost (CAC) and increase customer lifetime value (LTV).</p>
+            </div>
+            
+            <div class="insight-card">
+              <h3>
+                <span class="badge-icon">📉</span>
+                Asset Pruning
+              </h3>
+              <p>Identifying zero-sales and low-performance digital music tracks and albums to free up host performance and lower licensing/database maintenance costs.</p>
+            </div>
+
+            <div class="insight-card">
+              <h3>
+                <span class="badge-icon">📊</span>
+                Localized Pricing
+              </h3>
+              <p>Deploying localized discount matrices dynamically based on regional purchase power index (PPI) to maximize purchase frequencies in emerging markets.</p>
+            </div>
+
+            <div class="insight-card">
+              <h3>
+                <span class="badge-icon">🔄</span>
+                Purchase Funnel Modifiers
+              </h3>
+              <p>Optimizing multi-genre playlist suggestions and building customized bundles to increase average order value (AOV) and cross-selling ratios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
