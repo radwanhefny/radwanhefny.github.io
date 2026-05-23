@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DataCo Smart Supply Chain Case Study | Radwan Hefny</title>
+  <meta name="description"
+    content="Detailed supply chain optimization case study and business intelligence dashboards for DataCo Smart Supply Chain project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Dedicated styles for DataCo Case Study page */
+    .case-study-hero {
+      position: relative;
+      padding: 140px 0 80px;
+      background: radial-gradient(circle at center, rgba(108, 99, 255, 0.08) 0%, var(--bg-primary) 70%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .case-study-meta {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-item strong {
+      color: var(--accent-light);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-primary);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+
+    .back-btn:hover {
+      color: var(--accent);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 992px) {
+      .case-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Column titles & language badges */
+    .column-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .lang-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: rgba(108, 99, 255, 0.12);
+      color: var(--accent-light);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+    }
+
+    .lang-badge.ar {
+      background: rgba(167, 139, 250, 0.12);
+      color: #c084fc;
+      border-color: rgba(167, 139, 250, 0.2);
+    }
+
+    /* Swipe Carousel styles */
+    .swipe-carousel {
+      position: relative;
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+
+    .swipe-carousel:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .swipe-carousel-viewport {
+      width: 100%;
+      height: 100%;
+      cursor: grab;
+      overflow: hidden;
+    }
+
+    .swipe-carousel-viewport:active {
+      cursor: grabbing;
+    }
+
+    .swipe-carousel-track {
+      display: flex;
+      width: auto;
+      min-width: 100%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .swipe-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      user-select: none;
+    }
+
+    .swipe-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: auto;
+    }
+
+    /* Premium Placeholder Styles */
+    .swipe-slide-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(108, 99, 255, 0.05) 0%, rgba(10, 10, 15, 0.9) 100%);
+    }
+
+    .swipe-slide-placeholder span {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .swipe-slide-note {
+      font-size: 0.8rem;
+      color: var(--accent-light);
+      opacity: 0.7;
+    }
+
+    /* Carousel navigation controls */
+    .swipe-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(8px);
+      color: var(--accent-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      opacity: 0;
+    }
+
+    .swipe-carousel:hover .swipe-arrow {
+      opacity: 1;
+    }
+
+    .swipe-arrow:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+    }
+
+    .swipe-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .swipe-arrow--prev {
+      left: 12px;
+    }
+
+    .swipe-arrow--next {
+      right: 12px;
+    }
+
+    .swipe-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      background: rgba(10, 10, 15, 0.5);
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .swipe-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    .swipe-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      margin-top: 8px;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    /* Portrait aspect ratio override for Arabic Products carousel */
+    #sec2-ar {
+      aspect-ratio: 4 / 5;
+    }
+
+    /* Dashboard carousel styles for dataco.html */
+    .dashboard-carousel {
+      position: relative;
+      background: var(--bg-card);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+
+    .dashboard-carousel:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .carousel-viewport {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: auto;
+    }
+
+    /* Carousel arrows */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(10, 10, 15, 0.75);
+      backdrop-filter: blur(8px);
+      color: var(--accent-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      opacity: 0;
+    }
+
+    .dashboard-carousel:hover .carousel-arrow {
+      opacity: 1;
+    }
+
+    .carousel-arrow:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
+    }
+
+    .carousel-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .carousel-arrow--prev {
+      left: 12px;
+    }
+
+    .carousel-arrow--next {
+      right: 12px;
+    }
+
+    /* Carousel dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      background: rgba(10, 10, 15, 0.5);
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.25);
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    #sec2-ar .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="back-btn" aria-label="Back to home page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to Portfolio
+      </a>
+      <a href="index.html" class="nav-logo">R<span>.</span>M</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== Case Study Hero ===== -->
+    <header class="case-study-hero">
+      <div class="container">
+        <span class="section-label">Case Study Detail</span>
+        <h1 class="section-title" style="margin-top: 10px;">DataCo Smart Supply Chain Optimization</h1>
+        <p class="case-study-meta">
+          <span class="meta-item">Role: <strong>Team Lead &amp; Principal Analyst</strong></span>
+          <span class="meta-item">Tools: <strong>SQL, Python, Power BI</strong></span>
+          <span class="meta-item">Scope: <strong>180K+ Shipping Records</strong></span>
+        </p>
+      </div>
+    </header>
+
+    <!-- ===== Section 1: Case Study ===== -->
+    <section class="section" id="case-study" style="padding-top: 60px;">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-label">01 / OVERVIEW</span>
+          <h2 class="section-title" style="margin-top: 8px;">Supply Chain Case Study</h2>
+          <p class="section-desc">Analysis of end-to-end supply chain operational behavior, defining team structures,
+            and implementing strategic cost mitigation projects.</p>
+        </div>
+
+        <div class="case-grid">
+          <!-- English Column -->
+          <div class="case-column">
+            <div class="column-header">
+              <h3>English Dashboard Analysis</h3>
+              <span class="lang-badge">English</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec1-en">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>Executive Overview Slide</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Operational Inefficiencies Slide</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Strategic Recommendations Slide</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arabic Column -->
+          <div class="case-column" dir="rtl">
+            <div class="column-header">
+              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
+              <span class="lang-badge ar">العربية</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec1-ar">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>ملخص دراسة الحالة التنفيذية</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>تحليل عدم الكفاءة التشغيلية</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>التوصيات والخطط الاستراتيجية</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 2: Products Business Insights ===== -->
+    <section class="section" id="products-insights" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-label">02 / PRODUCTS</span>
+          <h2 class="section-title" style="margin-top: 8px;">Products Business Insights</h2>
+          <p class="section-desc">Detailed evaluation of product performance, product line cost analysis, and maximizing
+            profitability thresholds.</p>
+        </div>
+
+        <div class="case-grid">
+          <!-- English Column -->
+          <div class="case-column">
+            <div class="column-header">
+              <h3>English Dashboard Analysis</h3>
+              <span class="lang-badge">English</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec2-en">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>Product Profitability Analysis</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Top Performing Categories</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Product Cost & Margin Tracking</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arabic Column -->
+          <div class="case-column" dir="rtl">
+            <div class="column-header">
+              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
+              <span class="lang-badge ar">العربية</span>
+            </div>
+
+            <div class="dashboard-carousel" id="sec2-ar">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <img src="images/products_ar_intro.png" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات - DataCo Global"
+                    loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <img src="images/products_ar_slide1.png" alt="البداية - هيمنة كاملة بنسبة 94.7% لـ 9 منتجات فقط"
+                    loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <img src="images/products_ar_slide2.png" alt="ذكاء الشركة في ادارة المخازن - S-Curve Strategy"
+                    loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="3">
+                  <img src="images/products_ar_slide3.png" alt="الثغرة القاتلة - انهيار المبيعات 2017"
+                    loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="4">
+                  <img src="images/products_ar_slide4.png" alt="كشف الحساب المالي - مقارنة فترة الاستقرار والركود"
+                    loading="lazy" />
+                </div>
+              </div>
+              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
+                <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
+                <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 3: Shipping Business Insights ===== -->
+    <section class="section" id="shipping-insights">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-label">03 / SHIPPING</span>
+          <h2 class="section-title" style="margin-top: 8px;">Shipping Business Insights</h2>
+          <p class="section-desc">Optimizing delivery timeframes, tracking late shipping patterns, and monitoring
+            geographical freight distribution.</p>
+        </div>
+
+        <div class="case-grid">
+          <!-- English Column -->
+          <div class="case-column">
+            <div class="column-header">
+              <h3>English Dashboard Analysis</h3>
+              <span class="lang-badge">English</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec3-en">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>On-Time Shipping Ratios</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Geographical Freight Distribution</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Carrier Optimization Analysis</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arabic Column -->
+          <div class="case-column" dir="rtl">
+            <div class="column-header">
+              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
+              <span class="lang-badge ar">العربية</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec3-ar">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>نسب الشحن في الوقت المحدد</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>التوزيع الجغرافي للشحن اللوجستي</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>تحليل أداء شركات الشحن اللوجستي</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 4: Sales Business Insights ===== -->
+    <section class="section" id="sales-insights" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-label">04 / SALES</span>
+          <h2 class="section-title" style="margin-top: 8px;">Sales Business Insights</h2>
+          <p class="section-desc">Evaluating pricing policies, analyzing transaction frequencies, and understanding
+            seasonal sales volume patterns.</p>
+        </div>
+
+        <div class="case-grid">
+          <!-- English Column -->
+          <div class="case-column">
+            <div class="column-header">
+              <h3>English Dashboard Analysis</h3>
+              <span class="lang-badge">English</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec4-en">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>Sales & Revenue Progression</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Pricing Policy Analysis</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Seasonal Order Behavior</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arabic Column -->
+          <div class="case-column" dir="rtl">
+            <div class="column-header">
+              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
+              <span class="lang-badge ar">العربية</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec4-ar">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>تطور حجم المبيعات والإيرادات</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>تقييم سياسة التسعير والخصومات</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>مراقبة التغيرات الموسمية في الطلبات</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 5: Customers & Markets Business Insights ===== -->
+    <section class="section" id="customers-insights">
+      <div class="container">
+        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+          <span class="section-label">05 / MARKETS</span>
+          <h2 class="section-title" style="margin-top: 8px;">Customers &amp; Markets Insights</h2>
+          <p class="section-desc">Segmenting customer demographics, mapping market geographic metrics, and analyzing
+            localized revenue impact.</p>
+        </div>
+
+        <div class="case-grid">
+          <!-- English Column -->
+          <div class="case-column">
+            <div class="column-header">
+              <h3>English Dashboard Analysis</h3>
+              <span class="lang-badge">English</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec5-en">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>Customer Segmentation Map</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Localized Market Performance</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>Customer Lifetime Value Insights</span>
+                      <p class="swipe-slide-note">Swipe or drag to explore</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Arabic Column -->
+          <div class="case-column" dir="rtl">
+            <div class="column-header">
+              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
+              <span class="lang-badge ar">العربية</span>
+            </div>
+
+            <div class="swipe-carousel" id="sec5-ar">
+              <div class="swipe-carousel-viewport">
+                <div class="swipe-carousel-track">
+                  <div class="swipe-slide active">
+                    <div class="swipe-slide-placeholder">
+                      <span>خريطة تصنيف وشرائح العملاء</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>أداء الأسواق والمناطق الجغرافية</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                  <div class="swipe-slide">
+                    <div class="swipe-slide-placeholder">
+                      <span>رؤى القيمة الدائمة للعملاء</span>
+                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="swipe-dots">
+                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Touch/Swipe Carousel Script ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousels = document.querySelectorAll('.swipe-carousel');
+
+      carousels.forEach(carousel => {
+        const viewport = carousel.querySelector('.swipe-carousel-viewport');
+        const track = carousel.querySelector('.swipe-carousel-track');
+        const slides = carousel.querySelectorAll('.swipe-slide');
+        const prevBtn = carousel.querySelector('.swipe-arrow--prev');
+        const nextBtn = carousel.querySelector('.swipe-arrow--next');
+        const dots = carousel.querySelectorAll('.swipe-dot');
+
+        let currentIndex = 0;
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
+        let isDragging = false;
+
+        const getSlideWidth = () => viewport.clientWidth;
+
+        const updateCarousel = () => {
+          currentTranslate = currentIndex * -getSlideWidth();
+          prevTranslate = currentTranslate;
+          setTrackPosition();
+
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        };
+
+        const setTrackPosition = () => {
+          track.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        const requestPositionUpdate = () => {
+          if (isDragging) {
+            setTrackPosition();
+            requestAnimationFrame(requestPositionUpdate);
+          }
+        };
+
+        const dragStart = (e) => {
+          isDragging = true;
+          startX = getPositionX(e);
+          track.style.transition = 'none';
+          animationID = requestAnimationFrame(requestPositionUpdate);
+        };
+
+        const dragMove = (e) => {
+          if (!isDragging) return;
+          const currentX = getPositionX(e);
+          const diffX = currentX - startX;
+          currentTranslate = prevTranslate + diffX;
+        };
+
+        const dragEnd = () => {
+          isDragging = false;
+          cancelAnimationFrame(animationID);
+          track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+          const movedBy = currentTranslate - prevTranslate;
+          const threshold = getSlideWidth() * 0.2; // 20% swipe threshold
+
+          if (movedBy < -threshold && currentIndex < slides.length - 1) {
+            currentIndex++;
+          } else if (movedBy > threshold && currentIndex > 0) {
+            currentIndex--;
+          }
+
+          updateCarousel();
+        };
+
+        const getPositionX = (e) => {
+          return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        };
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+              currentIndex--;
+            } else {
+              currentIndex = slides.length - 1;
+            }
+            updateCarousel();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+            } else {
+              currentIndex = 0;
+            }
+            updateCarousel();
+          });
+        }
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+
+        // Touch Listeners
+        viewport.addEventListener('touchstart', dragStart, { passive: true });
+        viewport.addEventListener('touchmove', dragMove, { passive: true });
+        viewport.addEventListener('touchend', dragEnd);
+
+        // Mouse Listeners
+        viewport.addEventListener('mousedown', dragStart);
+        viewport.addEventListener('mousemove', dragMove);
+        viewport.addEventListener('mouseup', dragEnd);
+        viewport.addEventListener('mouseleave', dragEnd);
+
+        // Prevent standard drag behavior inside
+        viewport.querySelectorAll('img').forEach(img => {
+          img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+
+        // Resize snapping
+        window.addEventListener('resize', () => {
+          track.style.transition = 'none';
+          updateCarousel();
+        });
+
+        // Initial setup
+        updateCarousel();
+      });
+    });
+  </script>
+</body>
+
+</html>
