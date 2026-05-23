@@ -1059,9 +1059,9 @@ body.light-mode .theme-toggle .moon-icon {
     gap: 8px;
   }
   .project-buttons-row .btn {
-    width: 100%;
-    min-width: unset;
-    flex: 1 1 100%;
+    width: 100% !important;
+    min-width: unset !important;
+    flex: 1 1 100% !important;
   }
 }
 
