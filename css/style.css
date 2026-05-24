@@ -1080,6 +1080,136 @@ body.light-mode .theme-toggle .moon-icon {
     min-width: 0 !important;
     flex: none !important;
   }
+
+  /* Contact cards mobile fixes – keep two columns */
+  .contact-links {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100%;
+  }
+  .contact-link {
+    min-width: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+  .contact-link p,
+  .contact-link span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  /* Reduce font size for email and label to prevent truncation */
+  .contact-link p,
+  .contact-link span {
+    font-size: 0.65rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  /* Ensure copy button is always visible on mobile */
+  .copy-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+  }
+
+  /* Ensure the contact card is tall enough for content and button */
+  .contact-link {
+    min-height: 80px;
+  }
+
+  /* Fix 1 – Email overflow handling */
+  .contact-secondary {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+  .contact-secondary span {
+    font-size: 0.55rem;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Reduce padding of the contact card on mobile to give more space for the email */
+  .contact-link {
+    padding: 12px 8px;
+  }
+
+  /* Slightly smaller font for the email/phone text to prevent side clipping */
+  .contact-secondary span {
+    font-size: 0.55rem;
+  }
+
+  /* Fix 2 – Ensure copy button always visible on mobile */
+  .copy-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    flex-shrink: 0;
+  }
+
+  /* Ensure any .contact-grid uses two columns on mobile */
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    width: 100% !important;
+  }
+
+  /* Always show copy button on mobile */
+  .copy-btn {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* Fix 1 — Copy button inline positioning */
+  .copy-btn {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    flex-shrink: 0;
+  }
+  .contact-link:hover .copy-btn {
+    opacity: 1 !important;
+  }
+
+  /* Fix 2 — Email text overflow handling */
+  .contact-secondary {
+    overflow: hidden;
+    max-width: 100%;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+  .contact-secondary span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex: 1;
+    font-size: 0.6rem;
+  }
+
+  /* Reduce copy button size on mobile for more text space */
+  .copy-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .copy-btn {
+    padding: 2px !important;
+  }
+
+  /* Increase font size of contact text for readability */
+  .contact-secondary span {
+    font-size: 0.7rem !important;
+  }
 }
 
 /* Responsive: arrows inside on smaller screens */
