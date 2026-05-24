@@ -1054,16 +1054,20 @@ body.light-mode .theme-toggle .moon-icon {
 }
 
 @media (max-width: 576px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
   .project-buttons-row {
     flex-direction: column;
     gap: 8px;
+    align-items: stretch;
   }
 
   .project-buttons-row .btn {
     width: 100% !important;
-    min-width: unset !important;
-    flex: 1 1 100% !important;
-    margin-bottom: 8px;
+    min-width: 0 !important;
+    flex: none !important;
   }
 
   .project-buttons-row--single {
@@ -1073,7 +1077,8 @@ body.light-mode .theme-toggle .moon-icon {
 
   .project-buttons-row--single .btn {
     width: 100% !important;
-    margin-bottom: 8px;
+    min-width: 0 !important;
+    flex: none !important;
   }
 }
 
