@@ -1443,10 +1443,34 @@ body.light-mode .theme-toggle .moon-icon {
 /* ===== Responsive ===== */
 @media (max-width: 992px) {
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    /* Keep two columns on small screens for carousel sections */
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 
+
+/* Ensure carousel containers stay side‑by‑side on screens <768px */
+@media (max-width: 767px) {
+  /* Override any previous single‑column rule for case grids */
+  .case-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Allow carousel viewport to shrink within its column */
+  .carousel-viewport,
+  .swipe-carousel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Slightly reduce font sizes inside carousel slides to prevent overflow */
+  .carousel-slide img,
+  .swipe-slide-placeholder span,
+  .swipe-slide-placeholder p {
+    font-size: 0.9rem;
+  }
+}
   .projects-grid {
     grid-template-columns: 1fr;
   }
