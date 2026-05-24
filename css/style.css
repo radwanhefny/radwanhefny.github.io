@@ -1496,6 +1496,54 @@ body.light-mode .theme-toggle .moon-icon {
   }
 }
 
+/* Mobile overflow fixes (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure grid containers do not exceed viewport */
+  .case-grid,
+  .case-column,
+  .dashboard-carousel,
+  .swipe-carousel,
+  .carousel-viewport,
+  .swipe-carousel-viewport {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Flex/grid children should be allowed to shrink */
+  .case-column > *,
+  .dashboard-carousel > *,
+  .swipe-carousel > * {
+    min-width: 0 !important;
+  }
+
+  /* Images should not force overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* About section adjustments */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+  .about-text,
+  .about-stats {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  /* Keep stats in two columns */
+  .about-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 72px 0;
@@ -1595,6 +1643,20 @@ body.light-mode .theme-toggle .moon-icon {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Contact card text overflow fixes for small screens */
+@media (max-width: 576px) {
+  .contact-secondary {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .contact-secondary span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all; /* fallback for very long strings */
   }
 }
 
