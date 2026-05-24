@@ -1013,7 +1013,7 @@ body.light-mode .theme-toggle .moon-icon {
 
 .project-buttons-row .btn {
   flex: 1 1 calc(33.333% - 8px);
-  min-width: 120px;
+  min-width: 0px;
   justify-content: center;
   margin-top: 0;
   padding: 10px 12px;
