@@ -1058,9 +1058,14 @@ body.light-mode .theme-toggle .moon-icon {
     flex-direction: column;
     gap: 8px;
   }
-  .project-buttons-row .btn {
 
-  /* Ensure single row buttons also stack vertically on small screens */
+  .project-buttons-row .btn {
+    width: 100% !important;
+    min-width: unset !important;
+    flex: 1 1 100% !important;
+    margin-bottom: 8px;
+  }
+
   .project-buttons-row--single {
     flex-direction: column;
     align-items: stretch;
@@ -1069,15 +1074,6 @@ body.light-mode .theme-toggle .moon-icon {
   .project-buttons-row--single .btn {
     width: 100% !important;
     margin-bottom: 8px;
-  }
-
-  /* Add spacing between stacked buttons */
-  .project-buttons-row .btn {
-    margin-bottom: 8px;
-  }
-    width: 100% !important;
-    min-width: unset !important;
-    flex: 1 1 100% !important;
   }
 }
 
