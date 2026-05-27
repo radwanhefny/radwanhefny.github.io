@@ -34,19 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Mobile Nav Toggle =====
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('open');
-  });
-
-  // Close menu on link click
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navMenu.classList.remove('open');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
     });
-  });
+
+    // Close menu on link click
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+  }
 
   // ===== Scroll Reveal Animations =====
   const revealElements = document.querySelectorAll('.reveal');
@@ -119,15 +120,17 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add('light-mode');
   }
 
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
-    
-    if (body.classList.contains('light-mode')) {
-      localStorage.setItem('portfolio-theme', 'light');
-    } else {
-      localStorage.setItem('portfolio-theme', 'dark');
-    }
-  });
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('light-mode');
+      
+      if (body.classList.contains('light-mode')) {
+        localStorage.setItem('portfolio-theme', 'light');
+      } else {
+        localStorage.setItem('portfolio-theme', 'dark');
+      }
+    });
+  }
 
   // ===== Dashboard Carousels (Supports Multiple) =====
   const carousels = document.querySelectorAll('.dashboard-carousel');
@@ -401,4 +404,6 @@ window.copyContactText = function(event, text, tooltipId) {
     console.error('Failed to copy text: ', err);
   });
 };
+
+
 

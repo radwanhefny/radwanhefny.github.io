@@ -31,7 +31,7 @@
       margin-top: 24px;
       flex-wrap: wrap;
       color: var(--text-secondary);
-      font-size: 0.9rem;
+      font-size: 1.0rem;
     }
 
     .meta-item {
@@ -98,171 +98,14 @@
       border-color: rgba(167, 139, 250, 0.2);
     }
 
-    /* Swipe Carousel styles */
-    .swipe-carousel {
-      position: relative;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      transition: border-color var(--transition), box-shadow var(--transition);
-      aspect-ratio: 16 / 9;
-      width: 100%;
-    }
-
-    .swipe-carousel:hover {
-      border-color: var(--border-hover);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .swipe-carousel-viewport {
-      width: 100%;
-      height: 100%;
-      cursor: grab;
-      overflow: hidden;
-    }
-
-    .swipe-carousel-viewport:active {
-      cursor: grabbing;
-    }
-
-    .swipe-carousel-track {
-      display: flex;
-      width: auto;
-      min-width: 100%;
-      height: 100%;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .swipe-slide {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f172a;
-      user-select: none;
-    }
-
-    .swipe-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      pointer-events: auto;
-    }
-
-    /* Premium Placeholder Styles */
-    .swipe-slide-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--text-muted);
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(108, 99, 255, 0.05) 0%, rgba(10, 10, 15, 0.9) 100%);
-    }
-
-    .swipe-slide-placeholder span {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    .swipe-slide-note {
-      font-size: 0.8rem;
-      color: var(--accent-light);
-      opacity: 0.7;
-    }
-
-    /* Carousel navigation controls */
-    .swipe-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: rgba(10, 10, 15, 0.75);
-      backdrop-filter: blur(8px);
-      color: var(--accent-light);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all var(--transition);
-      opacity: 0;
-    }
-
-    .swipe-carousel:hover .swipe-arrow {
-      opacity: 1;
-    }
-
-    .swipe-arrow:hover {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-      box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
-    }
-
-    .swipe-arrow svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .swipe-arrow--prev {
-      left: 12px;
-    }
-
-    .swipe-arrow--next {
-      right: 12px;
-    }
-
-    .swipe-dots {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex;
-      gap: 8px;
-      background: rgba(10, 10, 15, 0.5);
-      padding: 6px 12px;
-      border-radius: 20px;
-      backdrop-filter: blur(4px);
-    }
-
-    .swipe-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
-      padding: 0;
-      transition: all 0.3s ease;
-    }
-
-    .swipe-dot.active {
-      background: var(--accent);
-      transform: scale(1.25);
-      box-shadow: 0 0 6px var(--accent);
-    }
+    /* Swipe Carousel styles removed – replaced by dashboard carousel */
 
     .section-desc {
       color: var(--text-secondary);
       font-size: 1.05rem;
       margin-top: 8px;
       margin-bottom: 24px;
-      max-width: 720px;
+      max-width: 1000px;
     }
 
     /* Portrait aspect ratio override for Arabic Products carousel */
@@ -279,7 +122,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-md);
       transition: border-color var(--transition), box-shadow var(--transition);
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 4 / 5;
       width: 100%;
     }
 
@@ -326,7 +169,7 @@
     .carousel-arrow {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(calc(-50% - 24px));
       z-index: 10;
       width: 40px;
       height: 40px;
@@ -409,7 +252,6 @@
 </head>
 
 <body>
-  <!-- ===== Navbar ===== -->
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
       <a href="index.html" class="back-btn" aria-label="Back to home page">
@@ -425,126 +267,100 @@
   </nav>
 
   <main>
-    <!-- ===== Case Study Hero ===== -->
     <header class="case-study-hero">
       <div class="container">
         <span class="section-label">Case Study Detail</span>
-        <h1 class="section-title" style="margin-top: 10px;">DataCo Smart Supply Chain Optimization</h1>
+        <h1 class="section-title" style="margin-top: 10px;">DataCo SMART SUPPLY CHAIN FOR BIG DATA ANALYSIS</h1>
         <p class="case-study-meta">
           <span class="meta-item">Role: <strong>Team Lead &amp; Principal Analyst</strong></span>
-          <span class="meta-item">Tools: <strong>SQL, Python, Power BI</strong></span>
+          <span class="meta-item">Tools: <strong>SQL, Python, Excel, Power BI</strong></span>
           <span class="meta-item">Scope: <strong>180K+ Shipping Records</strong></span>
         </p>
       </div>
     </header>
 
-    <!-- ===== Section 1: Case Study ===== -->
     <section class="section" id="case-study" style="padding-top: 60px;">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">01 / OVERVIEW</span>
+          <span class="section-label">OVERVIEW</span>
           <h2 class="section-title" style="margin-top: 8px;">Supply Chain Case Study</h2>
           <p class="section-desc">Analysis of end-to-end supply chain operational behavior, defining team structures,
             and implementing strategic cost mitigation projects.</p>
         </div>
 
         <div class="case-grid">
-          <!-- English Column -->
           <div class="case-column">
             <div class="column-header">
-              <h3>English Dashboard Analysis</h3>
               <span class="lang-badge">English</span>
             </div>
 
-            <div class="swipe-carousel" id="sec1-en">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>Executive Overview Slide</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Operational Inefficiencies Slide</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Strategic Recommendations Slide</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec1-en">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>Executive Overview Slide</span></div>
+
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>Operational Inefficiencies Slide</span></div>
+
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>Strategic Recommendations Slide</span></div>
+
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
               </div>
             </div>
           </div>
 
-          <!-- Arabic Column -->
           <div class="case-column" dir="rtl">
             <div class="column-header">
-              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
               <span class="lang-badge ar">العربية</span>
             </div>
 
-            <div class="swipe-carousel" id="sec1-ar">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>ملخص دراسة الحالة التنفيذية</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>تحليل عدم الكفاءة التشغيلية</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>التوصيات والخطط الاستراتيجية</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec1-ar">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>ملخص دراسة الحالة التنفيذية</span></div>
+
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>تحليل عدم الكفاءة التشغيلية</span></div>
+
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>التوصيات والخطط الاستراتيجية</span></div>
+
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
               </div>
             </div>
           </div>
@@ -552,71 +368,61 @@
       </div>
     </section>
 
-    <!-- ===== Section 2: Products Business Insights ===== -->
     <section class="section" id="products-insights" style="background: var(--bg-secondary);">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">02 / PRODUCTS</span>
+          <span class="section-label">01 / PRODUCTS</span>
           <h2 class="section-title" style="margin-top: 8px;">Products Business Insights</h2>
-          <p class="section-desc">Detailed evaluation of product performance, product line cost analysis, and maximizing
-            profitability thresholds.</p>
+          <p class="section-desc">Diagnosed a sudden 28% revenue collapse caused by uncoordinated product lifecycles. I audited historical financial performance to implement an S-Curve optimization strategy, delivering a risk-mitigation model that prevents inventory gaps while continuously discovering next-generation products to capture scalable market growth.</p>
         </div>
 
         <div class="case-grid">
-          <!-- English Column -->
           <div class="case-column">
             <div class="column-header">
-              <h3>English Dashboard Analysis</h3>
               <span class="lang-badge">English</span>
             </div>
 
-            <div class="swipe-carousel" id="sec2-en">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>Product Profitability Analysis</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Top Performing Categories</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Product Cost & Margin Tracking</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
-              </div>
-            </div>
+<div class="dashboard-carousel" id="sec2-en">
+  <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="carousel-viewport">
+    <div class="carousel-slide active" data-slide="0">
+      <div class="swipe-slide-placeholder">
+        <span>Product Profitability Analysis</span>
+        <p class="swipe-slide-note">Swipe or drag to explore</p>
+      </div>
+    </div>
+    <div class="carousel-slide" data-slide="1">
+      <div class="swipe-slide-placeholder">
+        <span>Top Performing Categories</span>
+        <p class="swipe-slide-note">Swipe or drag to explore</p>
+      </div>
+    </div>
+    <div class="carousel-slide" data-slide="2">
+      <div class="swipe-slide-placeholder">
+        <span>Product Cost & Margin Tracking</span>
+        <p class="swipe-slide-note">Swipe or drag to explore</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <div class="carousel-dots">
+    <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+    <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+    <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
+  </div>
+</div>
           </div>
 
-          <!-- Arabic Column -->
           <div class="case-column" dir="rtl">
             <div class="column-header">
-              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
               <span class="lang-badge ar">العربية</span>
             </div>
 
@@ -629,24 +435,36 @@
               </button>
               <div class="carousel-viewport">
                 <div class="carousel-slide active" data-slide="0">
-                  <img src="images/products_ar_intro.png" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات - DataCo Global"
-                    loading="lazy" />
+                  <img src="images/products_ar_intro.webp" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات" width="1200"
+                    height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="1">
-                  <img src="images/products_ar_slide1.png" alt="البداية - هيمنة كاملة بنسبة 94.7% لـ 9 منتجات فقط"
-                    loading="lazy" />
+                  <img src="images/products_ar_slide1.webp" alt="البداية"
+                    width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="2">
-                  <img src="images/products_ar_slide2.png" alt="ذكاء الشركة في ادارة المخازن - S-Curve Strategy"
-                    loading="lazy" />
+                  <img src="images/products_ar_slide2.webp" alt="S-Curve Strategy"
+                    width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="3">
-                  <img src="images/products_ar_slide3.png" alt="الثغرة القاتلة - انهيار المبيعات 2017"
-                    loading="lazy" />
+                  <img src="images/products_ar_slide3.webp" alt="الثغرة القاتلة"
+                    width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="4">
-                  <img src="images/products_ar_slide4.png" alt="كشف الحساب المالي - مقارنة فترة الاستقرار والركود"
-                    loading="lazy" />
+                  <img src="images/products_ar_slide4.webp" alt="كشف الحساب المالي"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="5">
+                  <img src="images/products_ar_slide5.webp" alt="الفجوتين"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="6">
+                  <img src="images/products_ar_slide6.webp" alt="التوصية"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="7">
+                  <img src="images/products_ar_slide7.webp" alt="النهاية"
+                    width="1200" height="1500"  loading="lazy" />
                 </div>
               </div>
               <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
@@ -661,6 +479,9 @@
                 <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
                 <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
                 <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
+                <button class="carousel-dot" data-dot="5" aria-label="شريحة 6"></button>
+                <button class="carousel-dot" data-dot="6" aria-label="شريحة 7"></button>
+                <button class="carousel-dot" data-dot="7" aria-label="شريحة 8"></button>
               </div>
             </div>
           </div>
@@ -668,113 +489,110 @@
       </div>
     </section>
 
-    <!-- ===== Section 3: Shipping Business Insights ===== -->
     <section class="section" id="shipping-insights">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">03 / SHIPPING</span>
+          <span class="section-label">02 / SHIPPING</span>
           <h2 class="section-title" style="margin-top: 8px;">Shipping Business Insights</h2>
           <p class="section-desc">Optimizing delivery timeframes, tracking late shipping patterns, and monitoring
             geographical freight distribution.</p>
         </div>
 
         <div class="case-grid">
-          <!-- English Column -->
           <div class="case-column">
             <div class="column-header">
-              <h3>English Dashboard Analysis</h3>
               <span class="lang-badge">English</span>
             </div>
 
-            <div class="swipe-carousel" id="sec3-en">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>On-Time Shipping Ratios</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Geographical Freight Distribution</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Carrier Optimization Analysis</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec3-en">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>On-Time Shipping Ratios</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>Geographical Freight Distribution</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>Carrier Optimization Analysis</span></div>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
               </div>
             </div>
           </div>
 
-          <!-- Arabic Column -->
           <div class="case-column" dir="rtl">
             <div class="column-header">
-              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
               <span class="lang-badge ar">العربية</span>
             </div>
 
-            <div class="swipe-carousel" id="sec3-ar">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>نسب الشحن في الوقت المحدد</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>التوزيع الجغرافي للشحن اللوجستي</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>تحليل أداء شركات الشحن اللوجستي</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec3-ar">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <img src="images/shipping_ar_intro.webp" alt="المقدمة" width="1200"
+                    height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <img src="images/shipping_ar_slide1.webp" alt="أزمة كفاءة التوصيل"
+                    width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <img src="images/shipping_ar_slide2.webp" alt="لأقاليم الأكثر تضررا"
+                    width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="3">
+                  <img src="images/shipping_ar_slide3.webp" alt="المورد هو المتهم الأول"
+                    width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="4">
+                  <img src="images/shipping_ar_slide4.webp" alt="الخطة 1"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="5">
+                  <img src="images/shipping_ar_slide5.webp" alt="الخطة 2"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="6">
+                  <img src="images/shipping_ar_slide6.webp" alt="الأثر"
+                    width="1200" height="1500"  loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="7">
+                  <img src="images/shipping_ar_slide7.webp" alt="الخاتمة"
+                    width="1200" height="1500"  loading="lazy" />
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
+                <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
+                <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
+                <button class="carousel-dot" data-dot="5" aria-label="شريحة 6"></button>
+                <button class="carousel-dot" data-dot="6" aria-label="شريحة 7"></button>
+                <button class="carousel-dot" data-dot="7" aria-label="شريحة 8"></button>
               </div>
             </div>
           </div>
@@ -782,113 +600,82 @@
       </div>
     </section>
 
-    <!-- ===== Section 4: Sales Business Insights ===== -->
     <section class="section" id="sales-insights" style="background: var(--bg-secondary);">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">04 / SALES</span>
+          <span class="section-label">03 / SALES</span>
           <h2 class="section-title" style="margin-top: 8px;">Sales Business Insights</h2>
           <p class="section-desc">Evaluating pricing policies, analyzing transaction frequencies, and understanding
             seasonal sales volume patterns.</p>
         </div>
 
         <div class="case-grid">
-          <!-- English Column -->
           <div class="case-column">
             <div class="column-header">
-              <h3>English Dashboard Analysis</h3>
               <span class="lang-badge">English</span>
             </div>
 
-            <div class="swipe-carousel" id="sec4-en">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>Sales & Revenue Progression</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Pricing Policy Analysis</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Seasonal Order Behavior</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec4-en">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>Sales & Revenue Progression</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>Pricing Policy Analysis</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>Seasonal Order Behavior</span></div>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
               </div>
             </div>
           </div>
 
-          <!-- Arabic Column -->
           <div class="case-column" dir="rtl">
             <div class="column-header">
-              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
               <span class="lang-badge ar">العربية</span>
             </div>
 
-            <div class="swipe-carousel" id="sec4-ar">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>تطور حجم المبيعات والإيرادات</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>تقييم سياسة التسعير والخصومات</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>مراقبة التغيرات الموسمية في الطلبات</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec4-ar">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>تطور حجم المبيعات والإيرادات</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>تقييم سياسة التسعير والخصومات</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>مراقبة التغيرات الموسمية في الطلبات</span></div>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
               </div>
             </div>
           </div>
@@ -896,113 +683,82 @@
       </div>
     </section>
 
-    <!-- ===== Section 5: Customers & Markets Business Insights ===== -->
     <section class="section" id="customers-insights">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">05 / MARKETS</span>
+          <span class="section-label">04 / MARKETS</span>
           <h2 class="section-title" style="margin-top: 8px;">Customers &amp; Markets Insights</h2>
           <p class="section-desc">Segmenting customer demographics, mapping market geographic metrics, and analyzing
             localized revenue impact.</p>
         </div>
 
         <div class="case-grid">
-          <!-- English Column -->
           <div class="case-column">
             <div class="column-header">
-              <h3>English Dashboard Analysis</h3>
               <span class="lang-badge">English</span>
             </div>
 
-            <div class="swipe-carousel" id="sec5-en">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>Customer Segmentation Map</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Localized Market Performance</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>Customer Lifetime Value Insights</span>
-                      <p class="swipe-slide-note">Swipe or drag to explore</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec5-en">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>Customer Segmentation Map</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>Localized Market Performance</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>Customer Lifetime Value Insights</span></div>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="Previous slide">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="Next slide">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="Slide 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="Slide 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="Slide 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
               </div>
             </div>
           </div>
 
-          <!-- Arabic Column -->
           <div class="case-column" dir="rtl">
             <div class="column-header">
-              <h3 style="margin-left: auto;">تحليل لوحة البيانات — اللغة العربية</h3>
               <span class="lang-badge ar">العربية</span>
             </div>
 
-            <div class="swipe-carousel" id="sec5-ar">
-              <div class="swipe-carousel-viewport">
-                <div class="swipe-carousel-track">
-                  <div class="swipe-slide active">
-                    <div class="swipe-slide-placeholder">
-                      <span>خريطة تصنيف وشرائح العملاء</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>أداء الأسواق والمناطق الجغرافية</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
-                  <div class="swipe-slide">
-                    <div class="swipe-slide-placeholder">
-                      <span>رؤى القيمة الدائمة للعملاء</span>
-                      <p class="swipe-slide-note">اسحب أو انقر للتصفح</p>
-                    </div>
-                  </div>
+            <div class="dashboard-carousel" id="sec5-ar">
+              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-viewport">
+                <div class="carousel-slide active" data-slide="0">
+                  <div class="carousel-placeholder"><span>خريطة تصنيف وشرائح العملاء</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="1">
+                  <div class="carousel-placeholder"><span>أداء الأسواق والمناطق الجغرافية</span></div>
+                </div>
+                <div class="carousel-slide" data-slide="2">
+                  <div class="carousel-placeholder"><span>رؤى القيمة الدائمة للعملاء</span></div>
                 </div>
               </div>
-              <button class="swipe-arrow swipe-arrow--prev" aria-label="السابق">
+              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
+                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
-              <button class="swipe-arrow swipe-arrow--next" aria-label="التالي">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="swipe-dots">
-                <button class="swipe-dot active" data-dot="0" aria-label="شريحة 1"></button>
-                <button class="swipe-dot" data-dot="1" aria-label="شريحة 2"></button>
-                <button class="swipe-dot" data-dot="2" aria-label="شريحة 3"></button>
+              <div class="carousel-dots">
+                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
               </div>
             </div>
           </div>
@@ -1011,147 +767,14 @@
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
     </div>
   </footer>
 
-  <!-- ===== Touch/Swipe Carousel Script ===== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousels = document.querySelectorAll('.swipe-carousel');
-
-      carousels.forEach(carousel => {
-        const viewport = carousel.querySelector('.swipe-carousel-viewport');
-        const track = carousel.querySelector('.swipe-carousel-track');
-        const slides = carousel.querySelectorAll('.swipe-slide');
-        const prevBtn = carousel.querySelector('.swipe-arrow--prev');
-        const nextBtn = carousel.querySelector('.swipe-arrow--next');
-        const dots = carousel.querySelectorAll('.swipe-dot');
-
-        let currentIndex = 0;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID = 0;
-        let isDragging = false;
-
-        const getSlideWidth = () => viewport.clientWidth;
-
-        const updateCarousel = () => {
-          currentTranslate = currentIndex * -getSlideWidth();
-          prevTranslate = currentTranslate;
-          setTrackPosition();
-
-          dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-          });
-        };
-
-        const setTrackPosition = () => {
-          track.style.transform = `translateX(${currentTranslate}px)`;
-        };
-
-        const requestPositionUpdate = () => {
-          if (isDragging) {
-            setTrackPosition();
-            requestAnimationFrame(requestPositionUpdate);
-          }
-        };
-
-        const dragStart = (e) => {
-          isDragging = true;
-          startX = getPositionX(e);
-          track.style.transition = 'none';
-          animationID = requestAnimationFrame(requestPositionUpdate);
-        };
-
-        const dragMove = (e) => {
-          if (!isDragging) return;
-          const currentX = getPositionX(e);
-          const diffX = currentX - startX;
-          currentTranslate = prevTranslate + diffX;
-        };
-
-        const dragEnd = () => {
-          isDragging = false;
-          cancelAnimationFrame(animationID);
-          track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-
-          const movedBy = currentTranslate - prevTranslate;
-          const threshold = getSlideWidth() * 0.2; // 20% swipe threshold
-
-          if (movedBy < -threshold && currentIndex < slides.length - 1) {
-            currentIndex++;
-          } else if (movedBy > threshold && currentIndex > 0) {
-            currentIndex--;
-          }
-
-          updateCarousel();
-        };
-
-        const getPositionX = (e) => {
-          return e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        };
-
-        if (prevBtn) {
-          prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-              currentIndex--;
-            } else {
-              currentIndex = slides.length - 1;
-            }
-            updateCarousel();
-          });
-        }
-
-        if (nextBtn) {
-          nextBtn.addEventListener('click', () => {
-            if (currentIndex < slides.length - 1) {
-              currentIndex++;
-            } else {
-              currentIndex = 0;
-            }
-            updateCarousel();
-          });
-        }
-
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
-          });
-        });
-
-        // Touch Listeners
-        viewport.addEventListener('touchstart', dragStart, { passive: true });
-        viewport.addEventListener('touchmove', dragMove, { passive: true });
-        viewport.addEventListener('touchend', dragEnd);
-
-        // Mouse Listeners
-        viewport.addEventListener('mousedown', dragStart);
-        viewport.addEventListener('mousemove', dragMove);
-        viewport.addEventListener('mouseup', dragEnd);
-        viewport.addEventListener('mouseleave', dragEnd);
-
-        // Prevent standard drag behavior inside
-        viewport.querySelectorAll('img').forEach(img => {
-          img.addEventListener('dragstart', (e) => e.preventDefault());
-        });
-
-        // Resize snapping
-        window.addEventListener('resize', () => {
-          track.style.transition = 'none';
-          updateCarousel();
-        });
-
-        // Initial setup
-        updateCarousel();
-      });
-    });
-  </script>
+  <!-- Link to external script handling carousel functionality -->
+  <script src="js/script.js"></script>
 </body>
 
 </html>
