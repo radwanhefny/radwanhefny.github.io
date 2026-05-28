@@ -662,7 +662,7 @@ body.light-mode .theme-toggle .moon-icon {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
 }
 
@@ -740,19 +740,21 @@ body.light-mode .theme-toggle .moon-icon {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  gap: 16px;
 }
 
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 36px 32px;
+  padding: 24px 24px;
+  padding-top: 32px;
   transition: all var(--transition);
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 600px;
+  row-gap: 12px;
 }
 
 .project-card::after {
@@ -782,17 +784,25 @@ body.light-mode .theme-toggle .moon-icon {
   font-weight: 800;
   color: rgba(108, 99, 255, 0.1);
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 0px;
+  position: absolute;
+  top: 16px;
+  left: 24px;
 }
 
 .project-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 14px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 1;
+  align-items: center;
+  gap: 16px;
+  padding-left: 75px; 
+  min-height: 1rem;
+  display: flex;
 }
 
 .project-card p {
@@ -801,14 +811,15 @@ body.light-mode .theme-toggle .moon-icon {
   line-height: 1.75;
   position: relative;
   z-index: 1;
+  left: 5px;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 20px;
-  margin-bottom: 24px;
+  margin-top: -15px;
+  margin-bottom: 50px;
   position: relative;
   z-index: 1;
 }
@@ -820,10 +831,12 @@ body.light-mode .theme-toggle .moon-icon {
   color: var(--accent);
   background: var(--accent-glow);
   border-radius: 20px;
+  margin-top: 4px; 
+  margin-bottom: 4px;
 }
 
 .project-details-btn {
-  margin-top: auto;
+  margin-top: 4px;
   align-self: flex-start;
   z-index: 2;
   position: relative;
@@ -842,17 +855,19 @@ body.light-mode .theme-toggle .moon-icon {
 .carousel-viewport {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: 430px;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 2px solid var(--border);
   box-shadow: var(--shadow-md);
   background: #0f172a;
   /* Solid dark shade for frames */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: unset;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -20px;
 }
 
 .carousel-slide {
@@ -917,11 +932,11 @@ body.light-mode .theme-toggle .moon-icon {
 }
 
 .carousel-arrow--prev {
-  left: 12px;
+  left: -20px;
 }
 
 .carousel-arrow--next {
-  right: 12px;
+  right: -20px;
 }
 
 /* Placeholder for missing images */
@@ -1006,7 +1021,7 @@ body.light-mode .theme-toggle .moon-icon {
 .project-buttons-row {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: -50px;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -1578,29 +1593,6 @@ body.light-mode .theme-toggle .moon-icon {
     gap: 32px;
   }
 
-
-/* Ensure carousel containers stay side‑by‑side on screens <768px */
-@media (max-width: 767px) {
-  /* Override any previous single‑column rule for case grids */
-  .case-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 24px !important;
-  }
-
-  /* Allow carousel viewport to shrink within its column */
-  .carousel-viewport,
-  .swipe-carousel {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  /* Slightly reduce font sizes inside carousel slides to prevent overflow */
-  .carousel-slide img,
-  .swipe-slide-placeholder span,
-  .swipe-slide-placeholder p {
-    font-size: 0.9rem;
-  }
-}
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -1632,50 +1624,7 @@ body.light-mode .theme-toggle .moon-icon {
   html, body {
     overflow-x: hidden;
   }
-
-  /* Ensure grid containers do not exceed viewport */
-  .case-grid,
-  .case-column,
-  .dashboard-carousel,
-  .swipe-carousel,
-  .carousel-viewport,
-  .swipe-carousel-viewport {
-    max-width: 100% !important;
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  /* Flex/grid children should be allowed to shrink */
-  .case-column > *,
-  .dashboard-carousel > *,
-  .swipe-carousel > * {
-    min-width: 0 !important;
-  }
-
-  /* Images should not force overflow */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* About section adjustments */
-  .about-grid {
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-  }
-  .about-text,
-  .about-stats {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-  /* Keep stats in two columns */
-  .about-stats {
-    grid-template-columns: 1fr 1fr !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
+    .section {
     padding: 72px 0;
   }
 
@@ -1736,6 +1685,103 @@ body.light-mode .theme-toggle .moon-icon {
   .hero-scroll-indicator {
     display: none;
   }
+
+  /* Ensure grid containers do not exceed viewport */
+  .case-grid,
+  .case-column,
+  .dashboard-carousel,
+  .swipe-carousel,
+  .carousel-viewport,
+  .swipe-carousel-viewport {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Flex/grid children should be allowed to shrink */
+  .case-column > *,
+  .dashboard-carousel > *,
+  .swipe-carousel > * {
+    min-width: 0 !important;
+  }
+
+  /* Images should not force overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* About section adjustments */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+  .about-text,
+  .about-stats {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  /* Keep stats in two columns */
+  .about-stats {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .project-card {
+    height: auto;
+  } 
+  .carousel-viewport {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  } 
+  .project-card h3 {
+    padding-left: auto;
+    margin-bottom: auto;
+  } 
+  .project-number {
+    position: relative;
+    top: auto;
+    left: auto;
+    font-size: 3rem;
+    margin-bottom: -70px;
+  }
+}
+
+
+/* Ensure carousel containers stay side‑by‑side on screens <768px */
+@media (max-width: 767px) {
+  /* Override any previous single‑column rule for case grids */
+  .case-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Allow carousel viewport to shrink within its column */
+  .carousel-viewport,
+  .swipe-carousel {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Slightly reduce font sizes inside carousel slides to prevent overflow */
+  .carousel-slide img,
+  .swipe-slide-placeholder span,
+  .swipe-slide-placeholder p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Contact card text overflow fixes for small screens */
+@media (max-width: 576px) {
+  .contact-secondary {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .contact-secondary span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all; /* fallback for very long strings */
+  }
 }
 
 @media (max-width: 480px) {
@@ -1773,20 +1819,6 @@ body.light-mode .theme-toggle .moon-icon {
   .btn {
     width: 100%;
     justify-content: center;
-  }
-}
-
-/* Contact card text overflow fixes for small screens */
-@media (max-width: 576px) {
-  .contact-secondary {
-    min-width: 0 !important;
-    overflow: hidden !important;
-  }
-  .contact-secondary span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-break: break-all; /* fallback for very long strings */
   }
 }
 
