@@ -916,6 +916,11 @@ body.light-mode .theme-toggle .moon-icon {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.dashboard-carousel:hover .carousel-arrow {
+  opacity: 1;
 }
 
 .carousel-arrow:hover {
@@ -1127,6 +1132,7 @@ body.light-mode .theme-toggle .moon-icon {
     opacity: 1 !important;
     visibility: visible !important;
     display: inline-flex !important;
+    margin-top: -25px;
   }
 
   /* Ensure the contact card is tall enough for content and button */
@@ -1240,8 +1246,11 @@ body.light-mode .theme-toggle .moon-icon {
 
 @media (max-width: 480px) {
   .carousel-arrow {
+    position: absolute;
     width: 36px;
     height: 36px;
+    opacity: 1;
+    top: 40%;
   }
 
   .carousel-arrow svg {

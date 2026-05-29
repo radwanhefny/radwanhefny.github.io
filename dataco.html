@@ -108,22 +108,15 @@
       max-width: 1000px;
     }
 
-    /* Portrait aspect ratio override for Arabic Products carousel */
-    #sec2-ar {
-      aspect-ratio: 4 / 5;
-    }
 
     /* Dashboard carousel styles for dataco.html */
     .dashboard-carousel {
       position: relative;
-      background: var(--bg-card);
-      border: 2px solid var(--border);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      transition: border-color var(--transition), box-shadow var(--transition);
-      aspect-ratio: 4 / 5;
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 28px 0 12px;
+      z-index: 1;
     }
 
     .dashboard-carousel:hover {
@@ -134,6 +127,7 @@
     .carousel-viewport {
       width: 100%;
       height: 100%;
+      aspect-ratio: 1200 / 1500;
       position: relative;
     }
 
@@ -186,8 +180,9 @@
       opacity: 0;
     }
 
-    .dashboard-carousel:hover .carousel-arrow {
-      opacity: 1;
+    .dashboard-carousel:hover .carousel-viewport {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-glow);
     }
 
     .carousel-arrow:hover {
@@ -242,12 +237,16 @@
       box-shadow: 0 0 6px var(--accent);
     }
 
-    #sec2-ar .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
+    @media (max-width: 480px) {
+  .carousel-arrow {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    opacity: 1;
+    top: 50%;
+  }
+
+
   </style>
 </head>
 
@@ -369,133 +368,137 @@
     </section>
 
     <section class="section" id="products-insights" style="background: var(--bg-secondary);">
-      <div class="container">
-        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-          <span class="section-label">01 / PRODUCTS</span>
-          <h2 class="section-title" style="margin-top: 8px;">Products Business Insights</h2>
-          <p class="section-desc">Diagnosed a sudden 28% revenue collapse caused by uncoordinated product lifecycles. I audited historical financial performance to implement an S-Curve optimization strategy, delivering a risk-mitigation model that prevents inventory gaps while continuously discovering next-generation products to capture scalable market growth.</p>
+  <div class="container">
+    <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+      <span class="section-label">01 / PRODUCTS</span>
+      <h2 class="section-title" style="margin-top: 8px;">Products Business Insights</h2>
+      <p class="section-desc">Diagnosed a sudden 28% revenue collapse caused by uncoordinated product lifecycles. I audited historical financial performance to implement an S-Curve optimization strategy, delivering a risk-mitigation model that prevents inventory gaps while continuously discovering next-generation products to capture scalable market growth.</p>
+    </div>
+
+    <div class="case-grid">
+      <div class="case-column">
+        <div class="column-header">
+          <span class="lang-badge">English</span>
         </div>
 
-        <div class="case-grid">
-          <div class="case-column">
-            <div class="column-header">
-              <span class="lang-badge">English</span>
+        <div class="dashboard-carousel" id="sec2-en">
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="carousel-viewport">
+            <div class="carousel-slide active" data-slide="0">
+              <img src="images/products_en_intro.webp" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات" width="1200" height="1500" loading="lazy" />
             </div>
-
-<div class="dashboard-carousel" id="sec2-en">
-  <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <div class="carousel-viewport">
-    <div class="carousel-slide active" data-slide="0">
-      <div class="swipe-slide-placeholder">
-        <span>Product Profitability Analysis</span>
-        <p class="swipe-slide-note">Swipe or drag to explore</p>
-      </div>
-    </div>
-    <div class="carousel-slide" data-slide="1">
-      <div class="swipe-slide-placeholder">
-        <span>Top Performing Categories</span>
-        <p class="swipe-slide-note">Swipe or drag to explore</p>
-      </div>
-    </div>
-    <div class="carousel-slide" data-slide="2">
-      <div class="swipe-slide-placeholder">
-        <span>Product Cost & Margin Tracking</span>
-        <p class="swipe-slide-note">Swipe or drag to explore</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button>
-  <div class="carousel-dots">
-    <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
-    <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
-    <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
-  </div>
-</div>
+            <div class="carousel-slide" data-slide="1">
+              <img src="images/products_en_slide1.webp" alt="البداية" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="2">
+              <img src="images/products_en_slide2.webp" alt="S-Curve Strategy" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="3">
+              <img src="images/products_en_slide3.webp" alt="الثغرة القاتلة" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="4">
+              <img src="images/products_en_slide4.webp" alt="كشف الحساب المالي" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="5">
+              <img src="images/products_en_slide5.webp" alt="الفجوتين" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="6">
+              <img src="images/products_en_slide6.webp" alt="التوصية" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="7">
+              <img src="images/products_en_slide7.webp" alt="النهاية" width="1200" height="1500" loading="lazy" />
+            </div>
           </div>
-
-          <div class="case-column" dir="rtl">
-            <div class="column-header">
-              <span class="lang-badge ar">العربية</span>
-            </div>
-
-            <div class="dashboard-carousel" id="sec2-ar">
-              <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="carousel-viewport">
-                <div class="carousel-slide active" data-slide="0">
-                  <img src="images/products_ar_intro.webp" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات" width="1200"
-                    height="1500" loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="1">
-                  <img src="images/products_ar_slide1.webp" alt="البداية"
-                    width="1200" height="1500" loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="2">
-                  <img src="images/products_ar_slide2.webp" alt="S-Curve Strategy"
-                    width="1200" height="1500" loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="3">
-                  <img src="images/products_ar_slide3.webp" alt="الثغرة القاتلة"
-                    width="1200" height="1500" loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="4">
-                  <img src="images/products_ar_slide4.webp" alt="كشف الحساب المالي"
-                    width="1200" height="1500"  loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="5">
-                  <img src="images/products_ar_slide5.webp" alt="الفجوتين"
-                    width="1200" height="1500"  loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="6">
-                  <img src="images/products_ar_slide6.webp" alt="التوصية"
-                    width="1200" height="1500"  loading="lazy" />
-                </div>
-                <div class="carousel-slide" data-slide="7">
-                  <img src="images/products_ar_slide7.webp" alt="النهاية"
-                    width="1200" height="1500"  loading="lazy" />
-                </div>
-              </div>
-              <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </button>
-              <div class="carousel-dots">
-                <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
-                <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
-                <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
-                <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
-                <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
-                <button class="carousel-dot" data-dot="5" aria-label="شريحة 6"></button>
-                <button class="carousel-dot" data-dot="6" aria-label="شريحة 7"></button>
-                <button class="carousel-dot" data-dot="7" aria-label="شريحة 8"></button>
-              </div>
-            </div>
+          
+          <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+            <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+            <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
+            <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
+            <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
+            <button class="carousel-dot" data-dot="5" aria-label="شريحة 6"></button>
+            <button class="carousel-dot" data-dot="6" aria-label="شريحة 7"></button>
+            <button class="carousel-dot" data-dot="7" aria-label="شريحة 8"></button>
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="case-column" dir="rtl">
+        <div class="column-header">
+          <span class="lang-badge ar">العربية</span>
+        </div>
+
+        <div class="dashboard-carousel" id="sec2-ar">
+          <button class="carousel-arrow carousel-arrow--prev" aria-label="السابق">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          
+          <div class="carousel-viewport">
+            <div class="carousel-slide active" data-slide="0">
+              <img src="images/products_ar_intro.webp" alt="ازاى اكتشفت ثغرة قاتلة للمبيعات" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="1">
+              <img src="images/products_ar_slide1.webp" alt="البداية" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="2">
+              <img src="images/products_ar_slide2.webp" alt="S-Curve Strategy" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="3">
+              <img src="images/products_ar_slide3.webp" alt="الثغرة القاتلة" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="4">
+              <img src="images/products_ar_slide4.webp" alt="كشف الحساب المالي" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="5">
+              <img src="images/products_ar_slide5.webp" alt="الفجوتين" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="6">
+              <img src="images/products_ar_slide6.webp" alt="التوصية" width="1200" height="1500" loading="lazy" />
+            </div>
+            <div class="carousel-slide" data-slide="7">
+              <img src="images/products_ar_slide7.webp" alt="النهاية" width="1200" height="1500" loading="lazy" />
+            </div>
+          </div>
+          
+          <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
+            <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
+            <button class="carousel-dot" data-dot="2" aria-label="شريحة 3"></button>
+            <button class="carousel-dot" data-dot="3" aria-label="شريحة 4"></button>
+            <button class="carousel-dot" data-dot="4" aria-label="شريحة 5"></button>
+            <button class="carousel-dot" data-dot="5" aria-label="شريحة 6"></button>
+            <button class="carousel-dot" data-dot="6" aria-label="شريحة 7"></button>
+            <button class="carousel-dot" data-dot="7" aria-label="شريحة 8"></button>
+          </div>
+        </div>
+      </div>
+    </div> </div> </section>
 
     <section class="section" id="shipping-insights">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
           <span class="section-label">02 / SHIPPING</span>
           <h2 class="section-title" style="margin-top: 8px;">Shipping Business Insights</h2>
-          <p class="section-desc">Optimizing delivery timeframes, tracking late shipping patterns, and monitoring
-            geographical freight distribution.</p>
+          <p class="section-desc">Optimizing delivery timeframes, tracking late shipping patterns, and monitoring geographical freight distribution.</p>
         </div>
 
         <div class="case-grid">
@@ -510,26 +513,49 @@
                   <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
+              
               <div class="carousel-viewport">
                 <div class="carousel-slide active" data-slide="0">
-                  <div class="carousel-placeholder"><span>On-Time Shipping Ratios</span></div>
+                  <img src="images/shipping_en_intro.webp" alt="On-Time Shipping Ratios" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="1">
-                  <div class="carousel-placeholder"><span>Geographical Freight Distribution</span></div>
+                  <img src="images/shipping_en_slide1.webp" alt="أزمة كفاءة التوصيل" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="2">
-                  <div class="carousel-placeholder"><span>Carrier Optimization Analysis</span></div>
+                  <img src="images/shipping_en_slide2.webp" alt="Geographical Freight Distribution" width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="3">
+                  <img src="images/shipping_en_slide3.webp" alt="Carrier Optimization Analysis" width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="4">
+                  <img src="images/shipping_en_slide4.webp" alt="الخطة 1" width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="5">
+                  <img src="images/shipping_en_slide5.webp" alt="الخطة 2" width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="6">
+                  <img src="images/shipping_en_slide6.webp" alt="الأثر" width="1200" height="1500" loading="lazy" />
+                </div>
+                <div class="carousel-slide" data-slide="7">
+                  <img src="images/shipping_en_slide7.webp" alt="الخاتمة" width="1200" height="1500" loading="lazy" />
                 </div>
               </div>
+              
               <button class="carousel-arrow carousel-arrow--next" aria-label="Next">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
+              
               <div class="carousel-dots">
                 <button class="carousel-dot active" data-dot="0" aria-label="Slide 1"></button>
                 <button class="carousel-dot" data-dot="1" aria-label="Slide 2"></button>
                 <button class="carousel-dot" data-dot="2" aria-label="Slide 3"></button>
+                <button class="carousel-dot" data-dot="3" aria-label="Slide 4"></button>
+                <button class="carousel-dot" data-dot="4" aria-label="Slide 5"></button>
+                <button class="carousel-dot" data-dot="5" aria-label="Slide 6"></button>
+                <button class="carousel-dot" data-dot="6" aria-label="Slide 7"></button>
+                <button class="carousel-dot" data-dot="7" aria-label="Slide 8"></button>
               </div>
             </div>
           </div>
@@ -545,45 +571,40 @@
                   <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
+              
               <div class="carousel-viewport">
                 <div class="carousel-slide active" data-slide="0">
-                  <img src="images/shipping_ar_intro.webp" alt="المقدمة" width="1200"
-                    height="1500" loading="lazy" />
+                  <img src="images/shipping_ar_intro.webp" alt="المقدمة" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="1">
-                  <img src="images/shipping_ar_slide1.webp" alt="أزمة كفاءة التوصيل"
-                    width="1200" height="1500" loading="lazy" />
+                  <img src="images/shipping_ar_slide1.webp" alt="أزمة كفاءة التوصيل" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="2">
-                  <img src="images/shipping_ar_slide2.webp" alt="لأقاليم الأكثر تضررا"
-                    width="1200" height="1500" loading="lazy" />
+                  <img src="images/shipping_ar_slide2.webp" alt="لأقاليم الأكثر تضررا" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="3">
-                  <img src="images/shipping_ar_slide3.webp" alt="المورد هو المتهم الأول"
-                    width="1200" height="1500" loading="lazy" />
+                  <img src="images/shipping_ar_slide3.webp" alt="المورد هو المتهم الأول" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="4">
-                  <img src="images/shipping_ar_slide4.webp" alt="الخطة 1"
-                    width="1200" height="1500"  loading="lazy" />
+                  <img src="images/shipping_ar_slide4.webp" alt="الخطة 1" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="5">
-                  <img src="images/shipping_ar_slide5.webp" alt="الخطة 2"
-                    width="1200" height="1500"  loading="lazy" />
+                  <img src="images/shipping_ar_slide5.webp" alt="الخطة 2" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="6">
-                  <img src="images/shipping_ar_slide6.webp" alt="الأثر"
-                    width="1200" height="1500"  loading="lazy" />
+                  <img src="images/shipping_ar_slide6.webp" alt="الأثر" width="1200" height="1500" loading="lazy" />
                 </div>
                 <div class="carousel-slide" data-slide="7">
-                  <img src="images/shipping_ar_slide7.webp" alt="الخاتمة"
-                    width="1200" height="1500"  loading="lazy" />
+                  <img src="images/shipping_ar_slide7.webp" alt="الخاتمة" width="1200" height="1500" loading="lazy" />
                 </div>
               </div>
+              
               <button class="carousel-arrow carousel-arrow--next" aria-label="التالي">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
+              
               <div class="carousel-dots">
                 <button class="carousel-dot active" data-dot="0" aria-label="شريحة 1"></button>
                 <button class="carousel-dot" data-dot="1" aria-label="شريحة 2"></button>
@@ -596,9 +617,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </div> </div> </section>
 
     <section class="section" id="sales-insights" style="background: var(--bg-secondary);">
       <div class="container">
