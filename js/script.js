@@ -329,7 +329,7 @@ function handleLightboxKeydown(e) {
 }
 
 function openLightbox(element) {
-  lastScrollPosition = window.scrollY; // 👈 حفظ مكان التصفح الحالي قبل الفتح
+  lastScrollPosition = window.scrollY;
   
   const swipeCarousel = element.closest('.swipe-carousel');
   const dashboardCarousel = element.closest('.dashboard-carousel');
@@ -348,7 +348,6 @@ function openLightbox(element) {
   renderLightboxImage();
   lightbox.classList.add('active');
   
-  // طريقة آمنة للمنع لا تسبب قفز الصفحة في المتصفحات الحديثة
   document.body.style.top = `-${lastScrollPosition}px`;
   document.body.classList.add('lightbox-open'); 
   
@@ -357,6 +356,40 @@ function openLightbox(element) {
   lightbox.focus();
   
   document.addEventListener('keydown', handleLightboxKeydown);
+
+  // 👇 👇 الحل المضمون: ربط التاتش بمنطقة محتوى الصور مباشرة 👇 👇
+  const contentArea = lightbox.querySelector('#lightboxContent');
+  if (contentArea) {
+    let lightboxTouchStartX = 0;
+    let lightboxTouchEndX = 0;
+
+    // تنظيف الأحداث القديمة لمنع التكرار
+    contentArea.ontouchstart = null;
+    contentArea.ontouchend = null;
+
+    contentArea.addEventListener('touchstart', (e) => {
+      // تسجيل أول نقطة لمس بصباع واحد
+      lightboxTouchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    contentArea.addEventListener('touchend', (e) => {
+      // تسجيل نقطة رفع الصباع
+      lightboxTouchEndX = e.changedTouches[0].clientX;
+      
+      const swipeDistance = lightboxTouchEndX - lightboxTouchStartX;
+      const minSwipeDistance = 40; // تقليل المسافة شوية عشان الموبايل يلقط السحبة أسرع
+
+      if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance < 0) {
+          // سحب لليسار (شمال) -> يجيب الصورة التالية
+          nextLightboxImage();
+        } else {
+          // سحب لليمين (يمين) -> يرجع للصورة السابقة
+          prevLightboxImage();
+        }
+      }
+    }, { passive: true });
+  }
 }
 
 function closeLightbox() {

@@ -1245,6 +1245,9 @@ body.light-mode .theme-toggle .moon-icon {
 }
 
 @media (max-width: 480px) {
+  .lightbox-arrow {
+      display: none !important;
+    }
   .carousel-arrow {
     position: absolute;
     width: 36px;
