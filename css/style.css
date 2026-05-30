@@ -578,17 +578,23 @@ body.light-mode .theme-toggle .moon-icon {
 /* ===== About Section ===== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: 20px 64px;
   align-items: start;
 }
 
 .about-text p {
   color: var(--text-secondary);
-  font-size: 1.30rem;
+  font-size: 1rem;
   line-height: 1.85;
+  width: 100%;
+  max-width: 200ch;
+  margin-bottom: 0.7rem;
 }
 
+.about-text p:last-child {
+  margin-bottom: 0;
+}
 
 
 .about-objective {
