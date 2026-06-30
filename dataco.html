@@ -280,38 +280,38 @@
 <body>
   <nav class="navbar scrolled" id="navbar">
     <div class="container">
-      <a href="index.html" class="back-btn" aria-label="Back to home page">
+      <a href="index.html#projects" class="back-btn" aria-label="Back to projects section">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
-        Back to Portfolio
+        Back to Projects
       </a>
-      <a href="index.html" class="nav-logo">R<span>.</span>M</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <span class="moon-icon">🌙</span>
+          <span class="sun-icon">☀️</span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <main>
-    <header class="case-study-hero">
-      <div class="container">
-        <span class="section-label">Case Study Detail</span>
-        <h1 class="section-title" style="margin-top: 10px;">DataCo SMART SUPPLY CHAIN FOR BIG DATA ANALYSIS</h1>
-        <p class="case-study-meta">
-          <span class="meta-item">Role: <strong>Team Lead &amp; Principal Analyst</strong></span>
-          <span class="meta-item">Tools: <strong>SQL, Python, Excel, Power BI</strong></span>
-          <span class="meta-item">Scope: <strong>180K+ Shipping Records</strong></span>
-        </p>
-      </div>
-    </header>
-
     <section class="section" id="case-study" style="padding-top: 60px;">
       <div class="container">
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
           <span class="section-label">OVERVIEW</span>
           <h2 class="section-title" style="margin-top: 8px;">Supply Chain Case Study</h2>
-          <p class="section-desc">Analysis of end-to-end supply chain operational behavior, defining team structures,
-            and implementing strategic cost mitigation projects.</p>
+          <p class="section-desc">Led a 5-member cross-functional team to analyze 180k+ records, uncovering $21.4M+ in recoverable value by diagnosing systemic failures across Products, Shipping, Sales, and Customers & Markets—translating complex operational data into a prioritized action roadmap with measurable financial outcomes.</p>
         </div>
         
             <div class="dashboard-carousel" id="sec1-en">
@@ -385,7 +385,7 @@
     <div class="section-header" style="text-align: left; margin-bottom: 20px;">
       <span class="section-label">01 / PRODUCTS</span>
       <h2 class="section-title" style="margin-top: 8px;">Products Business Insights</h2>
-      <p class="section-desc">Diagnosed a sudden 28% revenue collapse caused by uncoordinated product lifecycles. I audited historical financial performance to implement an S-Curve optimization strategy, delivering a risk-mitigation model that prevents inventory gaps while continuously discovering next-generation products to capture scalable market growth.</p>
+      <p class="section-desc">Traced a 28% revenue collapse to a fatal S-Curve gap: 9 products driving 94.7% of $34.2M in sales crashed to zero within 2 months, while replacement products were discovered too late — then implemented a 5% capital R&D allocation rule and lifecycle classification system (Dead Stock, Short-Life Stars, Rising Leaders) to permanently prevent inventory gaps and accelerate next-generation product discovery.</p>
     </div>
 
     <div class="case-grid">
@@ -511,7 +511,7 @@
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
           <span class="section-label">02 / SHIPPING</span>
           <h2 class="section-title" style="margin-top: 8px;">Shipping Business Insights</h2>
-          <p class="section-desc">Optimizing delivery timeframes, tracking late shipping patterns, and monitoring geographical freight distribution.</p>
+          <p class="section-desc">Identified that 54.8% of order cancellations — putting $10.6M at risk — stemmed not from transit failures but from supplier preparation delays, with First Class shipping carrying a 95.2% failure rate; resolved by deploying a buffer day system, real-time late-risk dashboard, SLA enforcement, and proactive customer compensation, lifting on-time delivery from 45.2% to 77.3%.</p>
         </div>
 
         <div class="case-grid">
@@ -637,9 +637,7 @@
         <div class="section-header" style="text-align: left; margin-bottom: 20px;">
           <span class="section-label">03 / SALES</span>
           <h2 class="section-title" style="margin-top: 8px;">Sales Business Insights</h2>
-          <p class="section-desc">
-            Evaluating pricing policies, analyzing transaction frequencies, and understanding seasonal sales volume patterns.
-          </p>
+          <p class="section-desc">Uncovered $10.8M frozen across three compounding failures: a broken payment gateway locking 95.3% of orders ($7.2M), transfer channel fraud and manual cancellations costing $1.4M annually, and $2.2M in margin wasted on discounts proven to have zero effect on purchase volume at any level from 1% to 25%.</p>
         </div>
 
         <div class="case-grid">
@@ -731,9 +729,7 @@
     <div class="section-header" style="text-align: left; margin-bottom: 20px;">
       <span class="section-label">04 / MARKETS</span>
       <h2 class="section-title" style="margin-top: 8px;">Customers &amp; Markets Insights</h2>
-      <p class="section-desc">
-        Segmenting customer demographics, mapping market geographic metrics, and analyzing localized revenue impact.
-      </p>
+      <p class="section-desc">Discovered that average spend ($554), product preferences, and purchase behavior are statistically identical across all global customer segments and markets — meaning the sole lever for revenue growth is customer acquisition reach, not discounts — redirecting $1.1M in discount savings toward a LATAM-modeled acquisition strategy that added 7,300 new customers and generated $4M+ in new revenue at a 370% ROI.</p>
     </div>
 
     <div class="case-grid">
@@ -818,6 +814,12 @@
       </div>
     </div>
   </div>
+      <!-- Thank you message with pulsating heart -->
+    <div class="thank-you" style="text-align:center; margin-top:70px;">
+      <p class="thank-you-text" style="font-size:2.2em;">
+        Thank you for your time <span class="heart pulsate">&#10084;</span>
+      </p>
+    </div>
 </section>
   </main>
 
@@ -825,10 +827,25 @@
     <div class="container">
       <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
     </div>
+    <style>
+      .pulsate {
+        display: inline-block;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      .thank-you-text {
+        color: var(--text-primary);
+      }
+      .thank-you-text .heart {
+        color: var(--accent);
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+        100% { transform: scale(1); }
+      }
+    </style>
+    <!-- Link to external script handling carousel functionality -->
+    <script src="js/script.js"></script>
   </footer>
-
-  <!-- Link to external script handling carousel functionality -->
-  <script src="js/script.js"></script>
-</body>
-
-</html>
+  </body>
+  </html>

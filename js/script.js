@@ -141,9 +141,26 @@ carousels.forEach(carousel => {
   const prevBtn = carousel.querySelector('.carousel-arrow--prev');
   const nextBtn = carousel.querySelector('.carousel-arrow--next');
   const viewport = carousel.querySelector('.carousel-viewport');
+  const label = carousel.querySelector('.carousel-label');
 
   if (!slides.length) return;
   let currentSlide = 0;
+
+  function updateLabel(index) {
+    if (!label) return;
+
+    const labels = label.getAttribute('data-labels');
+    if (!labels) return;
+
+    try {
+      const parsedLabels = JSON.parse(labels);
+      if (Array.isArray(parsedLabels) && parsedLabels[index]) {
+        label.textContent = parsedLabels[index];
+      }
+    } catch (error) {
+      console.warn('Unable to parse carousel labels:', error);
+    }
+  }
 
   function goToSlide(index) {
     if (index < 0) index = slides.length - 1;
@@ -155,6 +172,7 @@ carousels.forEach(carousel => {
     dots.forEach(dot => dot.classList.remove('active'));
     if (dots[index]) dots[index].classList.add('active');
 
+    updateLabel(index);
     currentSlide = index;
   }
 

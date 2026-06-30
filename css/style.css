@@ -1070,13 +1070,18 @@ body.light-mode .theme-toggle .moon-icon {
 }
 
 .project-buttons-row--single {
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column; /* لجعل العنوان فوق الزرار */
+  width: 100%;            /* لضمان أن الحاوية تأخذ عرض المكان المخصص لها */
+  align-items: stretch;
 }
 
 .project-buttons-row--single .btn {
-  flex: 0 1 auto;
-  min-width: 220px;
-  padding: 11px 20px;
+  flex: 1 1 auto;         /* اجعل الزرار ينمو ليملأ المساحة */
+  min-width: 0;           /* إلغاء الـ 220px ليسمح للزرار بالتمدد */
+  width: 100%;            /* إجبار الزرار على أخذ عرض الحاوية */
+  text-align: center;     /* سنترة النص داخل الزرار */
+  box-sizing: border-box;
 }
 
 @media (max-width: 576px) {
@@ -1400,6 +1405,14 @@ body.light-mode .theme-toggle .moon-icon {
   gap: 20px;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.contact-resume-btn {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto 0;
 }
 
 .contact-link {
