@@ -85,17 +85,26 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 12px;
-      background: rgba(108, 99, 255, 0.12);
-      color: var(--accent-light);
-      border: 1px solid rgba(108, 99, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(246, 225, 139, 0.14), rgba(196, 153, 68, 0.2));
+      color: #f5e3a4;
+      border: 1px solid rgba(196, 153, 68, 0.25);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04);
     }
 
     .lang-badge.ar {
-      background: rgba(167, 139, 250, 0.12);
-      color: #c084fc;
-      border-color: rgba(167, 139, 250, 0.2);
+      background: linear-gradient(135deg, rgba(246, 225, 139, 0.14), rgba(196, 153, 68, 0.2));
+      color: #f5e3a4;
+      border-color: rgba(196, 153, 68, 0.25);
+    }
+
+    body.light-mode .lang-badge,
+    body.light-mode .lang-badge.ar {
+      background: rgba(16, 21, 35, 0.08);
+      color: var(--text-primary);
+      border-color: rgba(16, 21, 35, 0.12);
+      box-shadow: none;
     }
 
     /* Swipe Carousel styles removed – replaced by dashboard carousel */
@@ -106,6 +115,28 @@
       margin-top: 8px;
       margin-bottom: 24px;
       max-width: 1000px;
+    }
+
+    .section-header {
+      background: linear-gradient(135deg, rgba(246, 225, 139, 0.14), rgba(196, 153, 68, 0.08));
+      padding: 24px 28px;
+      border-radius: 28px;
+    }
+
+    .section-header .section-label {
+      background: var(--accent-gradient-button);
+      background-color: #c49944;
+      color: #101523 !important;
+      -webkit-background-clip: border-box;
+      background-clip: border-box;
+      border: none;
+      box-shadow: 0 4px 20px rgba(177, 137, 30, 0.24);
+      text-shadow: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
 
@@ -825,7 +856,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
+      <p><img src="images/logo-nav.png" alt="Radwan brand logo" class="footer-logo-mark" />&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
     </div>
     <style>
       .pulsate {
@@ -836,7 +867,10 @@
         color: var(--text-primary);
       }
       .thank-you-text .heart {
-        color: var(--accent);
+        background: linear-gradient(135deg, #f6e18b 0%, #c49944 40%, #f6e18b 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
       }
       @keyframes pulse {
         0% { transform: scale(1); }
