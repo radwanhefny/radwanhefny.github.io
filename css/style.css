@@ -109,6 +109,28 @@ ul {
   padding: 0 24px;
 }
 
+.emoji-gold {
+  display: inline-block;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1;
+  font-size: 1.05em;
+  filter: drop-shadow(0 0 6px rgba(246, 225, 139, 0.18));
+}
+
+.footer-heart {
+  display: inline-block;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
 /* ===== Section Base ===== */
 .section {
   padding: 100px 0;
@@ -223,11 +245,11 @@ body:not(.light-mode) .navbar.scrolled {
 
 /* ===== Theme Toggle ===== */
 .theme-toggle {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(246, 225, 139, 0.12), rgba(196, 153, 68, 0.14));
+  border: 1px solid rgba(196, 153, 68, 0.55);
   color: var(--text-primary);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -235,13 +257,37 @@ body:not(.light-mode) .navbar.scrolled {
   cursor: pointer;
   transition: all var(--transition);
   font-size: 1.1rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: rotate(15deg);
-  box-shadow: var(--shadow-glow);
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+  transform: rotate(15deg) scale(1.03);
+  box-shadow: 0 0 0 1px rgba(246, 225, 139, 0.12), var(--shadow-glow);
+}
+
+.theme-toggle .moon-icon,
+.theme-toggle .sun-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.theme-toggle .moon-icon svg,
+.theme-toggle .sun-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.theme-toggle .moon-icon svg {
+  color: #ffffff;
+}
+
+.theme-toggle .sun-icon svg {
+  color: var(--accent-light);
 }
 
 .theme-toggle .sun-icon {
@@ -249,7 +295,7 @@ body:not(.light-mode) .navbar.scrolled {
 }
 
 body.light-mode .theme-toggle .sun-icon {
-  display: block;
+  display: inline-flex;
 }
 
 body.light-mode .theme-toggle .moon-icon {
@@ -400,8 +446,8 @@ body.light-mode .theme-toggle .moon-icon {
   height: 320px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--border-hover);
-  box-shadow: 0 0 50px rgba(177, 137, 30, 0.15), 0 0 100px rgba(177, 137, 30, 0.05);
+  border: 2px solid rgba(196, 153, 68, 0.45);
+  box-shadow: 0 0 34px rgba(177, 137, 30, 0.12), 0 0 72px rgba(177, 137, 30, 0.05);
   position: relative;
   z-index: 2;
   transition: all 0.5s ease;
@@ -417,7 +463,8 @@ body.light-mode .theme-toggle .moon-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: 50% 20%;
+  transform: scale(1.08);
   filter: grayscale(10%) contrast(1.05);
   transition: filter 0.5s ease;
 }
@@ -482,7 +529,7 @@ body::after {
   pointer-events: none;
   z-index: -1;
   opacity: 0.05;
-  background-image: url("../images/logo-nav.png"), url("../images/logo-nav.png");
+  background-image: url("../images/logo-nav.webp"), url("../images/logo-nav.webp");
   background-repeat: no-repeat, no-repeat;
   background-position: 98% 20%, 1% 78%;
   background-size: 18rem, 14rem;

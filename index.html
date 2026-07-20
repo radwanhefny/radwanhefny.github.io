@@ -34,7 +34,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#home" class="nav-logo">
-        <img src="images/logo-nav.png" alt="Radwan Mohamed logo" class="nav-logo-img" />
+        <img src="images/logo-nav.webp" alt="Radwan Mohamed logo" class="nav-logo-img" />
       </a>
       <ul class="nav-links" id="navMenu">
         <li><a href="#home" class="active">Home</a></li>
@@ -46,8 +46,18 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-          <span class="moon-icon">🌙</span>
-          <span class="sun-icon">☀️</span>
+          <span class="moon-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.8 4.2a8.3 8.3 0 1 0 6 14.7 8.3 8.3 0 0 1-6-14.7Z" fill="currentColor" />
+              <path d="M16.2 7.8a4.1 4.1 0 0 1 2.8 3.8 4.2 4.2 0 0 0-2.8-3.8Z" fill="#0f172a" opacity="0.78" />
+            </svg>
+          </span>
+          <span class="sun-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="4.6" fill="currentColor" />
+              <path d="M12 2.5v2.7M12 18.8v2.7M2.5 12h2.7M18.8 12h2.7M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
         </button>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
@@ -64,8 +74,8 @@
         <div class="hero-grid">
           <div class="hero-content">
             <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-name">Radwan Mohamed</h1>
-            <p class="hero-title">Data Analyst &amp; Insights Engineer</p>
+            <h1 class="hero-name">Radwan Hefny</h1>
+            <p class="hero-title">Data Analyst &amp; Business Intelligence</p>
             <p class="hero-desc">An NTI-Certified Data Analyst with a Mechanical Engineering foundation — I treat business problems the way engineers treat broken systems: find the failure point, measure the cost, and fix it with precision.</p>
             <div class="hero-buttons">
               <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -128,7 +138,7 @@
             </div>
           </div>
           <div class="about-objective reveal">
-            <h3><span class="objective-emoji">🎯</span> <span class="objective-text">Career Objective</span></h3>
+            <h3><span class="objective-emoji emoji-gold">🧭</span> <span class="objective-text">Career Objective</span></h3>
             <p>To decode the 'why' behind consumer decisions and market trends using engineering logic, ultimately
               building more sustainable and intelligent business models for rapidly scaling businesses.</p>
           </div>
@@ -144,7 +154,6 @@
         </div>
         <div class="skills-grid" data-stagger>
           <div class="skill-category reveal">
-            <span class="skill-icon">📊</span>
             <h3>Analysis & Modeling</h3>
             <div class="skill-tags">
               <span class="skill-tag">Excel</span>
@@ -159,7 +168,6 @@
             </div>
           </div>
           <div class="skill-category reveal">
-            <span class="skill-icon">📈</span>
             <h3>Visualization</h3>
             <div class="skill-tags">
               <span class="skill-tag">Power BI</span>
@@ -172,7 +180,6 @@
             </div>
           </div>
           <div class="skill-category reveal">
-            <span class="skill-icon">🤖</span>
             <h3>Programming & ML</h3>
             <div class="skill-tags">
               <span class="skill-tag">Python</span>
@@ -184,7 +191,6 @@
             </div>
           </div>
           <div class="skill-category reveal">
-            <span class="skill-icon">🛠️</span>
             <h3>Tools & Workflow</h3>
             <div class="skill-tags">
               <span class="skill-tag">Git</span>
@@ -456,22 +462,18 @@
         </div>
         <div class="services-grid" data-stagger>
           <div class="service-card reveal">
-            <span class="service-icon">🔗</span>
             <h3>Supply Chain Analytics & Optimization</h3>
             <p>End-to-end analysis of logistics data to reduce costs and maximize operational throughput.</p>
           </div>
           <div class="service-card reveal">
-            <span class="service-icon">🚀</span>
             <h3>E-commerce Growth Strategy & BI</h3>
             <p>Data-driven insights that unlock growth levers and break revenue ceilings for digital businesses.</p>
           </div>
           <div class="service-card reveal">
-            <span class="service-icon">📋</span>
             <h3>Technical Dashboard Design</h3>
             <p>Executive-grade Power BI dashboards with DAX measures that tell a clear data story.</p>
           </div>
           <div class="service-card reveal">
-            <span class="service-icon">🧠</span>
             <h3>Predictive Modeling & Machine Learning</h3>
             <p>Building reliable prediction systems using advanced regression, classification, and feature engineering.
             </p>
@@ -575,7 +577,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p><img src="images/logo-nav.png" alt="Radwan brand logo" class="footer-logo-mark" />&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
+      <p><img src="images/logo-nav.webp" alt="Radwan brand logo" class="footer-logo-mark" />&copy; 2026 Radwan Mohamed. Crafted with <span class="emoji-gold footer-heart">💛</span> and data.</p>
     </div>
   </footer>
 

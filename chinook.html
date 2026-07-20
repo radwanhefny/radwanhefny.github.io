@@ -150,8 +150,18 @@
       </ul>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-          <span class="moon-icon">🌙</span>
-          <span class="sun-icon">☀️</span>
+          <span class="moon-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.8 4.2a8.3 8.3 0 1 0 6 14.7 8.3 8.3 0 0 1-6-14.7Z" fill="currentColor" />
+              <path d="M16.2 7.8a4.1 4.1 0 0 1 2.8 3.8 4.2 4.2 0 0 0-2.8-3.8Z" fill="#0f172a" opacity="0.78" />
+            </svg>
+          </span>
+          <span class="sun-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="4.6" fill="currentColor" />
+              <path d="M12 2.5v2.7M12 18.8v2.7M2.5 12h2.7M18.8 12h2.7M4.8 4.8l1.9 1.9M17.3 17.3l1.9 1.9M4.8 19.2l1.9-1.9M17.3 6.7l1.9-1.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </span>
         </button>
       </div>
     </div>
@@ -172,7 +182,7 @@
           <div class="chinook-insight-grid">
             <div class="insight-card">
               <h3>
-                <span class="badge-icon">💡</span>
+                <span class="badge-icon emoji-gold">✨</span>
                 Revenue Retention
               </h3>
               <p>Reallocating local marketing budgets to high-retention regions and channels to lower customer acquisition cost (CAC) and increase customer lifetime value (LTV).</p>
@@ -180,7 +190,7 @@
             
             <div class="insight-card">
               <h3>
-                <span class="badge-icon">📉</span>
+                <span class="badge-icon emoji-gold">🗂️</span>
                 Asset Pruning
               </h3>
               <p>Identifying zero-sales and low-performance digital music tracks and albums to free up host performance and lower licensing/database maintenance costs.</p>
@@ -188,7 +198,7 @@
 
             <div class="insight-card">
               <h3>
-                <span class="badge-icon">📊</span>
+                <span class="badge-icon emoji-gold">📐</span>
                 Localized Pricing
               </h3>
               <p>Deploying localized discount matrices dynamically based on regional purchase power index (PPI) to maximize purchase frequencies in emerging markets.</p>
@@ -196,7 +206,7 @@
 
             <div class="insight-card">
               <h3>
-                <span class="badge-icon">🔄</span>
+                <span class="badge-icon emoji-gold">🔁</span>
                 Purchase Funnel Modifiers
               </h3>
               <p>Optimizing multi-genre playlist suggestions and building customized bundles to increase average order value (AOV) and cross-selling ratios.</p>
@@ -209,9 +219,20 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Radwan Mohamed. Crafted with <span>♥</span> and data.</p>
+      <p>&copy; 2026 Radwan Mohamed. Crafted with <span class="emoji-gold footer-heart">💛</span> and data.</p>
     </div>
   </footer>
+  <style>
+    .footer-heart {
+      display: inline-block;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+  </style>
   <script defer src="js/script.js"></script>
 </body>
 
